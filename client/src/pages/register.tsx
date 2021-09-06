@@ -39,7 +39,7 @@ const Register = () => {
   // >(registerMutation);
 
   //After use graphql-gencode
-  const [registerUser, { data, error, loading: _registerUserLoading }] =
+  const [registerUser, { loading: _registerUserLoading }] =
     useRegisterMutation();
   const toast = useToast();
 
