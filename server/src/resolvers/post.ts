@@ -188,6 +188,7 @@ export class PostResolver {
       if (existingPost.userId !== req.session.userId)
         return { code: 401, success: false, message: "Unauthorized" };
 
+      await Upvote.delete({postId: id})
       await Post.delete({ id });
 
       return { code: 200, success: true, message: "Post deleted successfully" };

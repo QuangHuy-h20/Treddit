@@ -74,6 +74,8 @@ const main = async () => {
 
   console.log("MongoDB connected");
 
+  app.set('trust proxy', 1)
+
   app.use(
     session({
       name: COOKIE_NAME,
@@ -82,8 +84,8 @@ const main = async () => {
         maxAge: 1000 * 60 * 60, //one hour,
         httpOnly: true, //JS front end cannot access the cookie
         secure: __prod__, //cookie only works in https
-        sameSite: "lax", //protection against CSRF
-        domain: __prod__ ? "https://treddit-hy8cc6dyc-quanghuy-h20.vercel.app" : undefined,
+        sameSite: "none", //protection against CSRF
+        
       },
       secret: process.env.SESSION_SECRET_DEV_PROD as string,
       saveUninitialized: false, //don't save empty sessions, right from the start
