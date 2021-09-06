@@ -1,0 +1,25 @@
+1.req.session.userId = existingUser.id
+=> {userId: 1}
+
+2.express-session + connect-mongo tao ban luu trong mongoDB
+_id:..... id mongoDB tu sinh
+session:{
+    cookie:{
+        ....
+    },
+    userId:1
+}
+
+3.express-session dong` thoi luu cookie o browser client [name-cookie]: {value cua cookie, duoc encrypt voi secret duoc tao trong env}
+
+4. Khi user tao req toi server, value cua cookie se duoc gui toi server
+
+5. Server se chan cookie, decrypt cookie
+_id:.....
+
+6.Khi do se make req toi mongoDB
+find(_id:.....)
+userId:1
+
+7. Server gan userId =1 vao req.session
+exam: Post.find({userId: req.session.userId})
