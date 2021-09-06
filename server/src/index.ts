@@ -83,7 +83,7 @@ const main = async () => {
         httpOnly: true, //JS front end cannot access the cookie
         secure: __prod__, //cookie only works in https
         sameSite: "lax", //protection against CSRF
-        domain: __prod__ ? ".vercel.app" : undefined,
+        domain: __prod__ ? "https://treddit-hy8cc6dyc-quanghuy-h20.vercel.app" : undefined,
       },
       secret: process.env.SESSION_SECRET_DEV_PROD as string,
       saveUninitialized: false, //don't save empty sessions, right from the start
